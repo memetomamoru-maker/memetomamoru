@@ -12,13 +12,15 @@
   <meta name="twitter:card" content="summary_large_image" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif+JP:wght@500;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif+JP:wght@500;600;700&family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <div class="grain" aria-hidden="true"></div>
+  <div class="vignette" aria-hidden="true"></div>
+
   <header class="site-header" data-header>
     <a class="brand" href="#top" aria-label="めめとのもり トップへ">
       <img class="brand-mark" src="assets/logo-mark.png" alt="" aria-hidden="true" />
@@ -35,13 +37,24 @@
     </nav>
   </header>
 
+  <aside class="side-index" data-side-index aria-label="現在地">
+    <a href="#about"><span class="label">入口</span><span class="dot"></span></a>
+    <a href="#works"><span class="label">制作</span><span class="dot"></span></a>
+    <a href="#profile"><span class="label">人物</span><span class="dot"></span></a>
+    <a href="#links"><span class="label">発信</span><span class="dot"></span></a>
+  </aside>
+
   <main id="top">
+    <!-- ============================================================ -->
     <section class="hero" aria-label="ファーストビュー">
       <div class="hero-bg" aria-hidden="true"></div>
       <div class="hero-shade" aria-hidden="true"></div>
       <div class="hero-inner">
-        <h1 class="hero-title reveal delay-1"><span class="line">伝わりにくいものを、</span><span class="line">伝わるかたちに。</span></h1>
-        <p class="hero-lead reveal delay-2">芽芽斗 守の制作物と発信をまとめた、<br>小さなポートフォリオです。</p>
+        <h1 class="hero-title">
+          <span class="line"><span>伝わりにくいものを、</span></span>
+          <span class="line"><span>伝わるかたちに。</span></span>
+        </h1>
+        <p class="hero-lead">芽芽斗 守の制作物と発信をまとめた、<br>小さなポートフォリオです。</p>
       </div>
       <a class="scroll-cue" href="#about" aria-label="下へスクロール">
         <span>scroll</span>
@@ -49,10 +62,15 @@
       </a>
     </section>
 
+    <!-- ============================================================ -->
     <section class="intro section" id="about">
       <div class="intro-grid">
         <div class="intro-copy reveal">
-          <h2><span class="line">道の無い森の中に、</span><span class="line">少しずつ道を創る。</span></h2>
+          <p class="section-kicker">About</p>
+          <h2 class="display">
+            <span class="line">道の無い森の中に、</span>
+            <span class="line">少しずつ道を創る。</span>
+          </h2>
         </div>
         <div class="intro-text reveal delay-1">
           <p>お金、芸術、文学、古典、親子の学び、そして日々の考え。</p>
@@ -62,121 +80,150 @@
       </div>
     </section>
 
+    <!-- ============================================================ -->
     <section class="name-story section">
       <div class="name-card reveal">
         <div class="panel-image" aria-hidden="true">
           <img src="assets/forest-bench.png" alt="森のベンチに座る人物のイラスト" />
         </div>
         <div class="panel-copy">
-          <h2 class="hello-heading"><span class="hello-line">こんにちは、</span><span class="name-greeting"><span class="name-reading">めめと・まもる</span><span class="name-kanji">芽芽斗 守です。</span></span></h2>
+          <h2 class="hello-heading">
+            <span class="hello-line">こんにちは、</span>
+            <span class="name-greeting">
+              <span class="name-reading">めめと・まもる</span>
+              <span class="name-kanji">芽芽斗 守です。</span>
+            </span>
+          </h2>
           <p>名前の元は、ラテン語の「メメント・モリ」です。<br class="soft-break">「死を想え」。人はいつか必ず死ぬことを、忘れないために。</p>
           <p>暗い言葉としてではなく、限りある人生の中で、<br class="soft-break">いま見ているもの、感じていること、作っているものを、後悔しないようにできるだけ形にしておくための戒めとして。</p>
         </div>
       </div>
     </section>
 
+    <!-- ============================================================ -->
     <section class="works section" id="works">
       <div class="works-shell reveal">
-      <div class="works-head">
-        <div class="works-copy">
-          <h2><span class="line">森の中にある、</span><span class="line">いくつかの入口。</span></h2>
-          <p>複雑な仕組み、遠く感じる文化、続けにくい学び。<br class="soft-break">それぞれを、少しだけ近づきやすい形にしました。</p>
+        <div class="works-head">
+          <figure class="works-spot" aria-hidden="true">
+            <img src="assets/works-intro-boy.png" alt="" />
+          </figure>
+          <div class="works-copy">
+            <p class="section-kicker">Works &nbsp;/&nbsp; 制作物</p>
+            <h2>
+              <span class="line">森の中にある、</span>
+              <span class="line">いくつかの入口。</span>
+            </h2>
+            <p>複雑な仕組み、遠く感じる文化、続けにくい学び。<br class="soft-break">それぞれを、少しだけ近づきやすい形にしました。</p>
+          </div>
         </div>
-        <figure class="works-spot" aria-hidden="true">
-          <img src="assets/works-intro-boy.png" alt="" />
-        </figure>
-      </div>
 
-      <div class="work-list">
-        <article class="work-card reveal">
-          <div class="work-num">01</div>
-          <div class="work-body">
-            <p class="work-label">Classic Cards</p>
-            <h3>古今掌</h3>
-            <p>小学生にもわかる、古典のいい言葉。<br class="soft-break">百人一首や論語など300点を、親子で読めるカードアプリにしました。</p>
-          </div>
-          <div class="work-actions">
-            <a href="https://kokonsho.vercel.app/" target="_blank" rel="noopener">App</a>
-            <a href="https://kokonsho-lp.vercel.app/" target="_blank" rel="noopener">LP</a>
-          </div>
-        </article>
+        <div class="work-list">
+          <article class="work-card reveal">
+            <div class="work-num" data-en="No.01">壱</div>
+            <div class="work-body">
+              <p class="work-label">Classic Cards</p>
+              <h3>古今掌</h3>
+              <p>小学生にもわかる、古典のいい言葉。<br class="soft-break">百人一首や論語など300点を、親子で読めるカードアプリにしました。</p>
+            </div>
+            <div class="work-actions">
+              <a href="https://kokonsho.vercel.app/" target="_blank" rel="noopener">App</a>
+              <a href="https://kokonsho-lp.vercel.app/" target="_blank" rel="noopener">LP</a>
+            </div>
+          </article>
 
-        <article class="work-card reveal">
-          <div class="work-num">02</div>
-          <div class="work-body">
-            <p class="work-label">Kids Math Game</p>
-            <h3>ムシ算</h3>
-            <p>計算練習を、虫を集める遊びに変えた親子向け学習ゲーム。<br class="soft-break">学びを義務ではなく、集める楽しさとして続けられるようにしました。</p>
-          </div>
-          <div class="work-actions">
-            <a href="https://mushisan.vercel.app/" target="_blank" rel="noopener">App</a>
-            <a href="https://mushisan-lp.vercel.app/" target="_blank" rel="noopener">LP</a>
-          </div>
-        </article>
+          <article class="work-card reveal delay-1">
+            <div class="work-num" data-en="No.02">弐</div>
+            <div class="work-body">
+              <p class="work-label">Kids Math Game</p>
+              <h3>ムシ算</h3>
+              <p>計算練習を、虫を集める遊びに変えた親子向け学習ゲーム。<br class="soft-break">学びを義務ではなく、集める楽しさとして続けられるようにしました。</p>
+            </div>
+            <div class="work-actions">
+              <a href="https://mushisan.vercel.app/" target="_blank" rel="noopener">App</a>
+              <a href="https://mushisan-lp.vercel.app/" target="_blank" rel="noopener">LP</a>
+            </div>
+          </article>
 
-        <article class="work-card reveal">
-          <div class="work-num">03</div>
-          <div class="work-body">
-            <p class="work-label">Fire Simulation</p>
-            <h3>FIRE COMPASS</h3>
-            <p>複雑なお金の仕組みや制度を、誰もが使えるFIRE診断ツールに。<br class="soft-break">いつ仕事を辞められるかを、数字で確かめるためのサービスです。</p>
-          </div>
-          <div class="work-actions">
-            <a href="https://fire-compass-seven.vercel.app/" target="_blank" rel="noopener">Open</a>
-          </div>
-        </article>
+          <article class="work-card reveal delay-2">
+            <div class="work-num" data-en="No.03">参</div>
+            <div class="work-body">
+              <p class="work-label">FIRE Simulation</p>
+              <h3>FIRE COMPASS</h3>
+              <p>複雑なお金の仕組みや制度を、誰もが使えるFIRE診断ツールに。<br class="soft-break">いつ仕事を辞められるかを、数字で確かめるためのサービスです。</p>
+            </div>
+            <div class="work-actions">
+              <a href="https://fire-compass-seven.vercel.app/" target="_blank" rel="noopener">Open</a>
+            </div>
+          </article>
 
-        <article class="work-card reveal">
-          <div class="work-num">04</div>
-          <div class="work-body">
-            <p class="work-label">Art Swipe</p>
-            <h3>名画収集館</h3>
-            <p>敷居が高く感じられがちな名画を、スワイプで直感的に触れられるWebサービスに。<br class="soft-break">芸術との出会い方を、もっと気軽にしました。</p>
-          </div>
-          <div class="work-actions">
-            <a href="https://meiga.vercel.app/" target="_blank" rel="noopener">App</a>
-            <a href="https://shuushukan.vercel.app/" target="_blank" rel="noopener">LP</a>
-          </div>
-        </article>
+          <article class="work-card reveal">
+            <div class="work-num" data-en="No.04">肆</div>
+            <div class="work-body">
+              <p class="work-label">Art Swipe</p>
+              <h3>名画収集館</h3>
+              <p>敷居が高く感じられがちな名画を、スワイプで直感的に触れられるWebサービスに。<br class="soft-break">芸術との出会い方を、もっと気軽にしました。</p>
+            </div>
+            <div class="work-actions">
+              <a href="https://meiga.vercel.app/" target="_blank" rel="noopener">App</a>
+              <a href="https://shuushukan.vercel.app/" target="_blank" rel="noopener">LP</a>
+            </div>
+          </article>
 
-        <article class="work-card reveal">
-          <div class="work-num">05</div>
-          <div class="work-body">
-            <p class="work-label">Literature Openings</p>
-            <h3>冒頭収集館</h3>
-            <p>青空文庫に収録された文学作品の冒頭に触れることで、読むきっかけをつくるWebサービス。<br class="soft-break">本を開く前に、「最初の一文」と出会うためのアプリです。</p>
-          </div>
-          <div class="work-actions">
-            <a href="https://boutou-shuushukan.vercel.app/" target="_blank" rel="noopener">App</a>
-            <a href="https://shuushukan.vercel.app/" target="_blank" rel="noopener">LP</a>
-          </div>
-        </article>
-      </div>
+          <article class="work-card reveal delay-1">
+            <div class="work-num" data-en="No.05">伍</div>
+            <div class="work-body">
+              <p class="work-label">Literature Openings</p>
+              <h3>冒頭収集館</h3>
+              <p>青空文庫に収録された文学作品の冒頭に触れることで、読むきっかけをつくるWebサービス。<br class="soft-break">本を開く前に、「最初の一文」と出会うためのアプリです。</p>
+            </div>
+            <div class="work-actions">
+              <a href="https://boutou-shuushukan.vercel.app/" target="_blank" rel="noopener">App</a>
+              <a href="https://shuushukan.vercel.app/" target="_blank" rel="noopener">LP</a>
+            </div>
+          </article>
+        </div>
       </div>
     </section>
 
+    <!-- ============================================================ -->
     <section class="profile section" id="profile">
       <div class="profile-card reveal">
         <div class="profile-photo">
           <img src="assets/profile-portrait.png" alt="芽芽斗 守のプロフィールイラスト" />
         </div>
         <div class="profile-copy">
-          <h2>芽芽斗 守<br><span>めめと・まもる</span></h2>
+          <p class="section-kicker">Profile</p>
+          <h2>芽芽斗 守<span>めめと・まもる</span></h2>
           <p class="role">Writer / Product Maker</p>
-          <p>2010年に国内大手のIT企業に入社。<br class="soft-break">デザイナーとして見た目をつくる仕事から始め、2016年に立教大学大学院でMBAを取得後、プランナーへ転身。</p>
-          <p>サービスの企画や立ち上げ、PMとして大規模サービスの改善を担い、2026年に退職。<br class="soft-break">デザイナーからPMまで、「伝わりにくいものをどう伝えるか」を一貫して仕事の軸にしてきました。</p>
-          <p>現在は起業準備を進めながら、個人でWebサービスの制作とnoteでの発信を続けています。</p>
+          <p>2010年、IT企業にデザイナーとして入社。</p>
+          <p>2016年にMBAを取得し、プランナーへ転身しました。</p>
+          <p>サービスの企画やPMを経て、2026年に退職。</p>
+          <p>「伝わりにくいものをどう伝えるか」を、一貫して仕事の軸にしてきました。</p>
+          <p>現在は起業準備を進めながら、個人でWebサービス制作とnoteでの発信を続けています。</p>
+
+          <div class="profile-timeline">
+            <div class="tl"><span class="yr">2010</span><span class="ev"><strong>IT企業に入社</strong> ／ デザイナーとしてキャリアを始める</span></div>
+            <div class="tl"><span class="yr">2016</span><span class="ev"><strong>MBA取得</strong> ／ プランナーへ転身</span></div>
+            <div class="tl"><span class="yr">2020</span><span class="ev"><strong>PMとして</strong> 大規模サービスの改善・立ち上げを担う</span></div>
+            <div class="tl"><span class="yr">2026</span><span class="ev"><strong>退職</strong> ／ 個人で制作と発信を始める</span></div>
+          </div>
         </div>
       </div>
     </section>
 
+    <!-- ============================================================ -->
     <section class="note-magazines section" id="links">
-      <div class="magazines-head reveal">
-        <h2><span class="line">森の外へ、</span><span class="line">ことばを置きにいく。</span></h2>
-        <p>日常のこと、家族との会話、AIを使ってわかったこと、人生の途中でふと考えたこと。<br class="soft-break">noteでは、そんな日々を3つの入口に分けて書き残しています。</p>
-      </div>
+      <div class="magazines-shell reveal">
+        <div class="magazines-head">
+          <p class="section-kicker">Note &nbsp;/&nbsp; 発信</p>
+          <h2>
+            <span class="line">森の外へ、</span>
+            <span class="line">ことばを置きにいく。</span>
+          </h2>
+          <p>日常のこと、家族との会話、AIを使ってわかったこと、人生の途中でふと考えたこと。<br class="soft-break">noteでは、そんな日々を3つの入口に分けて書き残しています。</p>
+        </div>
 
-      <div class="magazine-grid">
+        <div class="magazine-grid">
         <a class="magazine-card reveal" href="https://note.com/memetomamoru/m/md37500dd0fd9" target="_blank" rel="noopener">
           <figure>
             <img src="assets/magazine-creative-labo.png" alt="森の研究室で親子が制作しているイラスト" />
@@ -185,7 +232,7 @@
             <p class="magazine-label">Creative Labo</p>
             <h3>つくることの試行錯誤</h3>
             <p>AI、個人開発、創作。思いつきを形にしていく過程をまとめた場所です。</p>
-            <span>マガジンを読む</span>
+            <span class="more">マガジンを読む</span>
           </div>
         </a>
 
@@ -197,7 +244,7 @@
             <p class="magazine-label">Selection</p>
             <h3>はじめましての入口</h3>
             <p>スキが多かった記事、自分でも読み返したい記事を集めた代表選です。</p>
-            <span>マガジンを読む</span>
+            <span class="more">マガジンを読む</span>
           </div>
         </a>
 
@@ -209,9 +256,10 @@
             <p class="magazine-label">Life Log</p>
             <h3>暮らしと人生の記録</h3>
             <p>家族、退職、日々の会話、人生の途中で考えたことを置いています。</p>
-            <span>マガジンを読む</span>
+            <span class="more">マガジンを読む</span>
           </div>
         </a>
+        </div>
       </div>
     </section>
   </main>
