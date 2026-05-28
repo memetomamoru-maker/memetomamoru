@@ -456,32 +456,31 @@ h2.display .line,
 
 /* ---------- FOOTER ---------- */
 .footer{
-  position:relative;padding:80px 24px 64px;text-align:center;
-  color:rgba(255,251,245,.94);
+  position:relative;padding:72px 24px 60px;text-align:center;
+  color:var(--ink);
   font-family:var(--mono),var(--sans);font-size:12px;letter-spacing:.08em;
-  background:
-    radial-gradient(60% 70% at 50% 0%, rgba(255,250,225,.07), transparent 70%),
-    linear-gradient(180deg,#7c5a36 0%,#5a3e21 50%,#3a2614 100%);
+  background:linear-gradient(180deg,rgba(251,248,239,.96) 0%, rgba(245,239,225,.98) 100%);
+  border-top:1px solid rgba(184,172,145,.35);
   overflow:hidden;
 }
 .footer::before{
   content:"";position:absolute;left:50%;top:0;transform:translateX(-50%);
   width:min(1200px,90%);height:1px;
-  background:linear-gradient(90deg,transparent,rgba(255,235,200,.4),transparent);
+  background:linear-gradient(90deg,transparent,rgba(123,101,64,.25),transparent);
 }
 .footer-quote{
   font-family:var(--serif);font-size:clamp(18px,2vw,24px);line-height:1.8;letter-spacing:.08em;
-  color:rgba(255,250,235,.92);font-weight:500;margin:0 auto 48px;max-width:34em;font-style:normal;
+  color:rgba(23,52,40,.88);font-weight:500;margin:0 auto 44px;max-width:34em;font-style:normal;
 }
-.footer-quote span{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.36em;text-transform:uppercase;color:rgba(255,235,200,.55);margin-top:18px;font-weight:600}
-.footer-brand{display:flex;flex-direction:column;align-items:center;gap:12px;margin:0 auto 32px}
-.footer-brand-top{display:flex;align-items:center;justify-content:center;gap:20px}
-.footer-mark{width:72px;height:72px;object-fit:contain;filter:brightness(0) invert(1) opacity(.94)}
-.footer-ja{font-family:var(--serif);font-size:52px;line-height:1;letter-spacing:.10em;font-weight:700;color:#fff;white-space:nowrap}
-.footer-en{font-family:var(--mono);font-size:13px;line-height:1;letter-spacing:.48em;color:rgba(255,251,245,.78);font-weight:500;padding-left:4px}
-.footer-main{margin:0 0 10px;font-weight:600;color:#fff;letter-spacing:.07em}
-.footer-link{color:rgba(255,251,245,.96);text-decoration:none;border-bottom:1px solid rgba(255,251,245,.36);padding-bottom:2px;font-weight:600;transition:color .2s ease,border-color .2s ease}
-.footer-link:hover{color:#fff;border-color:#fff}
+.footer-quote span{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.36em;text-transform:uppercase;color:rgba(23,52,40,.5);margin-top:18px;font-weight:600}
+.footer-brand{display:flex;flex-direction:column;align-items:center;gap:10px;margin:0 auto 28px}
+.footer-brand-top{display:flex;align-items:center;justify-content:center;gap:16px}
+.footer-mark{width:84px;height:84px;object-fit:contain;filter:none}
+.footer-ja{font-family:var(--serif);font-size:46px;line-height:1;letter-spacing:.08em;font-weight:700;color:var(--ink);white-space:nowrap}
+.footer-en{font-family:var(--mono);font-size:13px;line-height:1;letter-spacing:.42em;color:rgba(23,52,40,.56);font-weight:600;padding-left:4px}
+.footer-main{margin:0 0 10px;font-weight:600;color:rgba(23,52,40,.82);letter-spacing:.07em}
+.footer-link{color:rgba(23,52,40,.92);text-decoration:none;border-bottom:1px solid rgba(23,52,40,.26);padding-bottom:2px;font-weight:600;transition:color .2s ease,border-color .2s ease}
+.footer-link:hover{color:var(--ink);border-color:var(--ink)}
 
 /* ---------- REVEAL ---------- */
 .reveal{opacity:0;transform:translateY(28px);transition:opacity .9s ease,transform 1s cubic-bezier(.2,.8,.2,1)}
@@ -494,12 +493,14 @@ h2.display .line,
   .section-marker{left:0}
 }
 @media (max-width:900px){
-  body{background:linear-gradient(180deg,#e6f1cf 0%,#d8ea9c 14%,#d8d984 32%,#e6cf6f 50%,#c98a3a 70%,#7c4520 90%,#4e2a10 100%)}
   .site-header{padding:16px 20px;min-height:70px}
-  .brand{gap:10px}.brand-mark{width:42px;height:42px}.brand-ja{font-size:22px}.brand-en{font-size:8px;letter-spacing:.24em}
+  .brand{gap:10px}.brand-mark{width:46px;height:46px}.brand-ja{font-size:22px}.brand-en{font-size:8px;letter-spacing:.24em}
   .nav{gap:14px;font-size:10.5px;letter-spacing:.14em}
-  .hero{align-items:center;padding:118px 0 90px}.hero-bg{background-position:55% top}
-  .hero-shade{background:linear-gradient(180deg,rgba(250,246,235,.15) 0%,rgba(250,246,235,.55) 48%,rgba(250,246,235,.9) 100%)}
+  .hero{align-items:center;padding:118px 0 90px}.hero-bg{background-position:center center}
+  .hero-shade{background:
+    radial-gradient(80% 60% at 30% 70%, rgba(251,246,234,.88) 0%, rgba(251,246,234,.55) 40%, transparent 75%),
+    linear-gradient(180deg, rgba(237,246,230,.20) 0%, rgba(245,238,212,.55) 88%, rgba(245,238,212,.85) 100%),
+    radial-gradient(circle at 62% 28%, rgba(255,255,235,.55), transparent 38%)}
   .hero-inner{width:calc(100% - 32px)}
   .hero-kicker{margin-bottom:24px}
   .hero-title{font-size:clamp(30px,8.5vw,44px);line-height:1.36;letter-spacing:.015em}
@@ -532,13 +533,13 @@ h2.display .line,
   .profile-timeline .tl{grid-template-columns:64px 1fr;gap:14px}
   .note-magazines{width:calc(100% - 40px);padding-top:40px}
   .magazine-grid{grid-template-columns:1fr;gap:18px}
-  .footer-ja{font-size:36px}.footer-en{font-size:11px;letter-spacing:.32em}.footer-mark{width:56px;height:56px}
+  .footer-ja{font-size:36px}.footer-en{font-size:11px;letter-spacing:.32em}.footer-mark{width:64px;height:64px}
   .footer-quote{font-size:16px;margin-bottom:32px}
 }
 @media (max-width:520px){
   body{line-height:1.84}
   .site-header{min-height:60px;padding:12px 18px}
-  .brand-mark{width:36px;height:36px}.brand-ja{font-size:20px}.brand-en{display:none}
+  .brand-mark{width:40px;height:40px}.brand-ja{font-size:20px}.brand-en{display:none}
   .nav{display:none}
   .hero{padding-bottom:80px}
   .hero-title{font-size:clamp(27px,8.6vw,34px);letter-spacing:.005em}
