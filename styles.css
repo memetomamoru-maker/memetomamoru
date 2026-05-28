@@ -163,7 +163,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   background:#edf6e6;
   isolation:isolate;
 }
-.hero-bg{position:absolute;inset:0;background:url("assets/forest-hero.png") center/cover no-repeat;transform:scale(1.04);will-change:transform}
+.hero-bg{position:absolute;inset:0;background:url("assets/forest-hero.png") center/cover no-repeat;scale:1.06;will-change:transform,translate}
 .hero-shade{position:absolute;inset:0;
   background:
     radial-gradient(80% 60% at 30% 70%, rgba(251,246,234,.88) 0%, rgba(251,246,234,.55) 40%, transparent 75%),

@@ -37,7 +37,6 @@ if (!prefersReduced) {
     window.addEventListener('scroll', () => {
       const y = Math.min(window.scrollY, window.innerHeight);
       heroBg.style.setProperty('translate', `0 ${y * 0.05}px`);
-      heroBg.style.setProperty('scale', `${1.04 + y * 0.00005}`);
     }, { passive: true });
   }
 
