@@ -1,49 +1,45 @@
-/* めめとのもり — performance tuned interactions */
+/* めめとのもり — refined edition / interactions */
 
 const header = document.querySelector('[data-header]');
 const sideIndex = document.querySelector('[data-side-index]');
-const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-let ticking = false;
 const onScroll = () => {
-  if (ticking) return;
-  ticking = true;
-  requestAnimationFrame(() => {
-    const y = window.scrollY;
-    if (header) header.classList.toggle('is-scrolled', y > 18);
-    if (sideIndex) sideIndex.classList.toggle('is-visible', y > window.innerHeight * 0.6);
+  const y = window.scrollY;
+  header.classList.toggle('is-scrolled', y > 18);
+  if (sideIndex) sideIndex.classList.toggle('is-visible', y > window.innerHeight * 0.6);
 
-    const maxScroll = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
-    const progress = Math.min(1, Math.max(0, y / maxScroll));
-    document.body.classList.toggle('leaves-mid', progress > 0.32 && progress <= 0.64);
-    document.body.classList.toggle('leaves-autumn', progress > 0.64);
+  // scroll progress 0 → 1 across page; drive leaf decay color
+  const max = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+  const progress = Math.min(1, Math.max(0, y / max));
 
-    ticking = false;
-  });
+  // green → ochre → brown. It should feel like the season is changing while scrolling.
+  const decay = Math.pow(progress, 1.35) * 100;
+  document.documentElement.style.setProperty('--leaf-decay', decay.toFixed(1));
+
+  // Before the fallen-leaf footer strip enters the viewport, airborne leaves fade out.
+  // Fade is completed while the footer leaf illustration is still just below the screen.
+  const footerReturn = document.querySelector('.footer-return') || document.querySelector('.footer');
+  let leafOpacity = 1;
+  if (footerReturn) {
+    const rect = footerReturn.getBoundingClientRect();
+
+    // Start fading while the leaf pile is still far below the viewport.
+    // End fading before the leaf pile appears, so only the grounded leaves remain.
+    const fadeStart = window.innerHeight * 1.65;
+    const fadeEnd = window.innerHeight * 1.08;
+    const t = (fadeStart - rect.top) / Math.max(1, fadeStart - fadeEnd);
+    leafOpacity = 1 - Math.min(1, Math.max(0, t));
+  } else if (progress > 0.82) {
+    leafOpacity = Math.max(0, 1 - ((progress - 0.82) / 0.10));
+  }
+  document.documentElement.style.setProperty('--leaf-air-opacity', leafOpacity.toFixed(3));
 };
 window.addEventListener('scroll', onScroll, { passive: true });
 onScroll();
 
-/* ---------- lightweight drifting leaves ---------- */
-if (!prefersReduced) {
-  const layer = document.querySelector('.particles');
-  const isMobile = window.matchMedia('(max-width: 720px)').matches;
-  const count = isMobile ? 8 : 14;
-  if (layer) {
-    for (let i = 0; i < count; i += 1) {
-      const leaf = document.createElement('span');
-      leaf.className = 'particle leaf';
-      leaf.style.left = `${Math.random() * 100}%`;
-      leaf.style.animationDuration = `${18 + Math.random() * 16}s`;
-      leaf.style.animationDelay = `${-Math.random() * 24}s`;
-      leaf.style.transform = `translate3d(0,-10vh,0) rotate(${Math.random() * 180}deg)`;
-      leaf.style.opacity = '0';
-      layer.appendChild(leaf);
-    }
-  }
-}
-
 /* ---------- reveal on scroll ---------- */
+const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
 if (!prefersReduced) {
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
@@ -54,6 +50,35 @@ if (!prefersReduced) {
     });
   }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
   document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+
+  /* ---------- hero parallax (subtle) ---------- */
+  const heroBg = document.querySelector('.hero-bg');
+  if (heroBg) {
+    window.addEventListener('scroll', () => {
+      const y = Math.min(window.scrollY, window.innerHeight);
+      heroBg.style.setProperty('translate', `0 ${y * 0.05}px`);
+    }, { passive: true });
+  }
+
+  /* ---------- atmospheric particles ---------- */
+  const layer = document.createElement('div');
+  layer.className = 'particles';
+  document.body.appendChild(layer);
+
+  const COUNT = window.innerWidth < 720 ? 6 : 11;
+  for (let i = 0; i < COUNT; i++) {
+    const p = document.createElement('span');
+    p.className = 'particle';
+    const left = Math.random() * 100;
+    const dur = 22 + Math.random() * 18;
+    const delay = -Math.random() * dur;
+    const scale = 0.7 + Math.random() * 0.9;
+    p.style.left = left + 'vw';
+    p.style.animationDuration = dur + 's';
+    p.style.animationDelay = delay + 's';
+    p.style.scale = scale.toFixed(2);
+    layer.appendChild(p);
+  }
 } else {
   document.querySelectorAll('.reveal').forEach((el) => el.classList.add('is-visible'));
 }
@@ -75,6 +100,7 @@ const sectionObserver = new IntersectionObserver((entries) => {
     }
   });
 }, { rootMargin: '-45% 0px -45% 0px' });
+
 sections.forEach(s => sectionObserver.observe(s));
 
 /* ---------- smooth-scroll for in-page anchors ---------- */
@@ -90,3 +116,13 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     }
   });
 });
+
+
+/* ---------- footer return to top ---------- */
+const footerTopTrigger = document.querySelector('.footer-top-trigger');
+
+if (footerTopTrigger) {
+  footerTopTrigger.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: prefersReduced ? 'auto' : 'smooth' });
+  });
+}
