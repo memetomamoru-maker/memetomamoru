@@ -313,13 +313,13 @@ h2.display .line,
   position:relative;
 }
 .works-head{
-  display:grid;grid-template-columns:300px minmax(0,1fr);gap:46px;align-items:center;
-  margin:0 0 36px;padding-bottom:30px;border-bottom:1px solid var(--line);
+  display:grid;grid-template-columns:360px minmax(0,1fr);gap:34px;align-items:end;
+  margin:0 0 32px;padding-bottom:26px;border-bottom:1px solid var(--line);
 }
-.works-copy{min-width:0;max-width:720px;order:2}
-.works-head h2{font-size:clamp(30px,3.4vw,46px);max-width:560px;line-height:1.28;margin:0;font-family:var(--serif);font-weight:700;color:var(--ink);letter-spacing:.03em}
-.works-head p:not(.section-kicker){color:var(--ink-soft);font-size:17px;max-width:32em;margin:18px 0 0}
-.works-spot{margin:0;justify-self:start;order:1;width:min(100%,300px);border-radius:22px;overflow:hidden;background:#dce5c8;box-shadow:0 16px 40px rgba(23,52,40,.14);position:relative}
+.works-copy{min-width:0;max-width:640px;order:2;padding-bottom:8px}
+.works-head h2{font-size:clamp(30px,3.4vw,46px);max-width:560px;line-height:1.24;margin:0;font-family:var(--serif);font-weight:700;color:var(--ink);letter-spacing:.03em}
+.works-head p:not(.section-kicker){color:var(--ink-soft);font-size:17px;max-width:31em;margin:16px 0 0}
+.works-spot{margin:0;justify-self:start;align-self:end;order:1;width:min(100%,360px);border-radius:26px;overflow:hidden;background:rgba(220,229,200,.82);box-shadow:0 18px 42px rgba(23,52,40,.12);position:relative}
 .works-spot img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;transition:transform 1.4s ease}
 .works-spot:hover img{transform:scale(1.05)}
 
@@ -532,9 +532,9 @@ h2.display .line,
   h2.display,.intro h2,.works-head h2,.profile-copy h2,.magazines-head h2{font-size:clamp(28px,8vw,40px)}
   .panel-copy h2,.hello-heading{font-size:clamp(26px,7vw,38px)}
   .works-shell{padding:24px 20px 16px;border-radius:30px}
-  .works-head{grid-template-columns:1fr;gap:20px;padding-bottom:22px}
-  .works-copy{max-width:none;order:1}.works-head h2{max-width:none}
-  .works-spot{justify-self:start;order:2;width:min(100%,280px)}
+  .works-head{grid-template-columns:1fr;gap:16px;padding-bottom:18px;align-items:start}
+  .works-copy{max-width:none;order:1;padding-bottom:0}.works-head h2{max-width:none}
+  .works-spot{justify-self:center;align-self:start;order:2;width:min(100%,320px)}
   .name-story{width:calc(100% - 40px)}
   .name-card{gap:20px;padding:18px;border-radius:28px}
   .panel-image{aspect-ratio:16/10;border-radius:22px}
